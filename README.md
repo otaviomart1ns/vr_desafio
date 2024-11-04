@@ -215,8 +215,6 @@ Remove a associação de preço de um produto em uma loja.
 curl -X DELETE http://localhost:5000/produtos/1/lojas/1
 ```
 
----
-
 ## Endpoints para Lojas
 
 ### 10. **`GET /lojas`**
