@@ -29,7 +29,7 @@ Certifique-se de ter os seguintes componentes instalados no ambiente onde o proj
 Clone o repositório do projeto localmente:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/otaviomart1ns/vr_desafio.git
 ```
 
 ### 2. Navegue até o Diretório do Projeto
@@ -37,12 +37,12 @@ git clone https://github.com/seu-usuario/seu-repositorio.git
 Acesse o diretório clonado:
 
 ```bash
-cd seu-repositorio
+cd vr_desafio
 ```
 
 ### 3. Configure o Arquivo `.env`
 
-O arquivo `.env` já está configurado com as seguintes variáveis de ambiente para a API Flask e o banco de dados MySQL. Verifique se o arquivo está presente na raiz do projeto:
+O arquivo `.env` deve estar configurado com as seguintes variáveis de ambiente para a API Flask e o banco de dados MySQL. Verifique se o arquivo está presente na raiz do projeto:
 
 ```bash
 # Configurações do Flask
@@ -120,10 +120,9 @@ Cria um novo produto.
 curl -X POST http://localhost:5000/produtos \
   -H "Content-Type: application/json" \
   -d '{
-        "nome": "Produto A",
         "descricao": "Descrição do Produto A",
-        "preco": 100.50,
-        "custo": 70.00
+        "custo": 70.00,
+        "imagem": "<imagem-base64>"
       }'
 ```
 
@@ -137,20 +136,19 @@ Retorna informações sobre um produto específico com base no seu `id`.
 curl -X GET http://localhost:5000/produtos/1
 ```
 
-### 4. **`PUT /produtos/<id>`**
+### 4. **`PATCH /produtos/<id>`**
 
 Atualiza um produto existente com base no `id`.
 
 #### Exemplo de Requisição com `curl`:
 
 ```bash
-curl -X PUT http://localhost:5000/produtos/1 \
+curl -X PATCH http://localhost:5000/produtos/1 \
   -H "Content-Type: application/json" \
   -d '{
-        "nome": "Produto A Atualizado",
         "descricao": "Nova descrição do Produto A",
-        "preco": 120.00,
-        "custo": 80.00
+        "custo": 80.00,
+        "imagem": "<nova-imagem-base64>"
       }'
 ```
 
@@ -193,14 +191,14 @@ curl -X POST http://localhost:5000/produtos/1/lojas \
       }'
 ```
 
-### 8. **`PUT /produtos/<id>/lojas/<id_preco>`**
+### 8. **`PATCH /produtos/<id>/lojas/<id_preco>`**
 
 Atualiza o preço de venda de um produto em uma loja específica.
 
 #### Exemplo de Requisição com `curl`:
 
 ```bash
-curl -X PUT http://localhost:5000/produtos/1/lojas/1 \
+curl -X PATCH http://localhost:5000/produtos/1/lojas/1 \
   -H "Content-Type: application/json" \
   -d '{
         "preco_venda": 110.00
@@ -241,8 +239,7 @@ Cria uma nova loja.
 curl -X POST http://localhost:5000/lojas \
   -H "Content-Type: application/json" \
   -d '{
-        "nome": "Loja B",
-        "endereco": "Endereço da Loja B"
+        "descricao": "Loja B"
       }'
 ```
 
@@ -256,18 +253,17 @@ Retorna informações sobre uma loja específica.
 curl -X GET http://localhost:5000/lojas/1
 ```
 
-### 13. **`PUT /lojas/<id>`**
+### 13. **`PATCH /lojas/<id>`**
 
 Atualiza as informações de uma loja específica.
 
 #### Exemplo de Requisição com `curl`:
 
 ```bash
-curl -X PUT http://localhost:5000/lojas/1 \
+curl -X PATCH http://localhost:5000/lojas/1 \
   -H "Content-Type: application/json" \
   -d '{
-        "nome": "Loja B Atualizada",
-        "endereco": "Novo Endereço da Loja B"
+        "descricao": "Loja B Atualizada"
       }'
 ```
 
