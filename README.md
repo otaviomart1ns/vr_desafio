@@ -90,8 +90,21 @@ Após executar o comando acima, acesse os serviços:
 
 Para parar e remover os containers em execução, utilize o comando:
 
+
 ```bash
 docker-compose down
+```
+
+### 7. Executando as Migrações do Banco de Dados
+
+Após subir os containers com o docker-compose, será necessário rodar as migrações do banco de dados para criar as tabelas necessárias. Siga os passos abaixo:
+
+```bash
+docker exec -it vr_desafio-api-1 /bin/sh
+```
+
+```bash
+flask db upgrade
 ```
 
 ---
