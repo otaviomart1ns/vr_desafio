@@ -83,7 +83,6 @@ class CadastroProdutoController extends GetxController {
 
         return produtoAtualizado.id;
       } else {
-        // Cria um novo produto
         Produto novoProduto = Produto(
           descricao: descricaoController.text,
           custo: converterValorParaSalvar(custoController.text),

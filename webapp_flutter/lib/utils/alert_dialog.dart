@@ -41,7 +41,6 @@ class PriceAdjustmentDialog {
                       var id = cadastroProdutoController.codigoController.text;
 
                       if (id.isEmpty) {
-                        // Exibir alerta se não houver produto associado
                         Get.snackbar(
                           'Atenção',
                           'Produto não está associado. Por favor, associe um produto antes de salvar.',
@@ -53,7 +52,6 @@ class PriceAdjustmentDialog {
                       } else if (cadastroProdutoController.selectedLoja !=
                               null &&
                           priceController.text.isNotEmpty) {
-                        // Convertendo a vírgula para ponto antes de salvar
                         double precoVenda = cadastroProdutoController
                             .converterValorParaSalvar(priceController.text);
 
@@ -63,6 +61,7 @@ class PriceAdjustmentDialog {
                           precoVenda: precoVenda,
                           precoLojaId: precoLojaId,
                         );
+                        // ignore: use_build_context_synchronously
                         Navigator.of(context).pop();
                       }
                     },

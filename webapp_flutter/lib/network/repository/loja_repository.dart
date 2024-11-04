@@ -11,7 +11,11 @@ class LojaRepository {
       http.Response response = await ApiService.getLojas();
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);
-        return jsonList.map((json) => Loja.fromJson(json)).toList();
+        return jsonList
+            .map(
+              (json) => Loja.fromJson(json),
+            )
+            .toList();
       } else {
         throw HttpException(
             'Falha ao carregar lojas: ${response.reasonPhrase}');

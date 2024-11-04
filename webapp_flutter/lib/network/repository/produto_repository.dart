@@ -22,7 +22,11 @@ class ProdutoRepository {
       );
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);
-        return jsonList.map((json) => Produto.fromJson(json)).toList();
+        return jsonList
+            .map(
+              (json) => Produto.fromJson(json),
+            )
+            .toList();
       } else {
         throw HttpException(
             'Falha ao carregar produtos: ${response.reasonPhrase}');
@@ -109,7 +113,11 @@ class ProdutoRepository {
       http.Response response = await ApiService.getPrecosProdutoLoja(produtoId);
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);
-        return jsonList.map((json) => ProdutoLoja.fromJson(json)).toList();
+        return jsonList
+            .map(
+              (json) => ProdutoLoja.fromJson(json),
+            )
+            .toList();
       } else {
         throw HttpException(
             'Falha ao obter preços do produto com id $produtoId: ${response.reasonPhrase}');

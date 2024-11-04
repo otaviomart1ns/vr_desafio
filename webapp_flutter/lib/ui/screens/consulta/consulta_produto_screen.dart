@@ -249,6 +249,7 @@ Widget _buildResponsiveTable(List<Produto> produtos,
                       await cadastroController.getLojas();
                       await cadastroController.infoProdutoLoja(produto.id!);
                       await cadastroController.infoProduto(produto.id!);
+                      // ignore: use_build_context_synchronously
                       Navigator.pushNamed(context, '/produto/cadastro',
                           arguments: produto);
                     },

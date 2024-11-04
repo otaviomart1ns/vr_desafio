@@ -23,7 +23,8 @@ class Produto {
       imagem: json['imagem'],
       precoVenda: json['preco_venda'] != null
           ? List<double>.from(
-              json['preco_venda'].map((value) => value as double))
+              json['preco_venda'].map((value) => value as double),
+            )
           : [],
     );
   }

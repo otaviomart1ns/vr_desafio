@@ -26,7 +26,9 @@ class ApiService {
 
   // Método para buscar um único produto por ID
   static Future<http.Response> getProduto(int id) async {
-    return await http.get(Uri.parse('${ApiUrl.productsUrl}/$id'));
+    return await http.get(
+      Uri.parse('${ApiUrl.productsUrl}/$id'),
+    );
   }
 
   // Método para criar um novo produto
@@ -36,7 +38,9 @@ class ApiService {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(produto.toJson()),
+      body: jsonEncode(
+        produto.toJson(),
+      ),
     );
   }
 
@@ -47,23 +51,31 @@ class ApiService {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(produto.toJson()),
+      body: jsonEncode(
+        produto.toJson(),
+      ),
     );
   }
 
   // Método para deletar um produto por ID
   static Future<http.Response> deleteProduto(int id) async {
-    return await http.delete(Uri.parse('${ApiUrl.productsUrl}/$id'));
+    return await http.delete(
+      Uri.parse('${ApiUrl.productsUrl}/$id'),
+    );
   }
 
   // Método para buscar todas as lojas
   static Future<http.Response> getLojas() async {
-    return await http.get(Uri.parse(ApiUrl.lojasUrl));
+    return await http.get(
+      Uri.parse(ApiUrl.lojasUrl),
+    );
   }
 
   // Método para buscar uma loja específica por ID
   static Future<http.Response> getLoja(int id) async {
-    return await http.get(Uri.parse('${ApiUrl.lojasUrl}/$id'));
+    return await http.get(
+      Uri.parse('${ApiUrl.lojasUrl}/$id'),
+    );
   }
 
   // Método para criar uma nova loja
@@ -73,7 +85,9 @@ class ApiService {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(loja.toJson()),
+      body: jsonEncode(
+        loja.toJson(),
+      ),
     );
   }
 
@@ -84,13 +98,17 @@ class ApiService {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(loja.toJson()),
+      body: jsonEncode(
+        loja.toJson(),
+      ),
     );
   }
 
   // Método para deletar uma loja por ID
   static Future<http.Response> deleteLoja(int id) async {
-    return await http.delete(Uri.parse('${ApiUrl.lojasUrl}/$id'));
+    return await http.delete(
+      Uri.parse('${ApiUrl.lojasUrl}/$id'),
+    );
   }
 
   // Método para associar um preço de venda a um produto em uma loja específica
@@ -107,7 +125,9 @@ class ApiService {
 
   // Método para buscar todos os preços de venda de um produto em diferentes lojas
   static Future<http.Response> getPrecosProdutoLoja(int produtoId) async {
-    return await http.get(Uri.parse('${ApiUrl.productsUrl}/$produtoId/precos'));
+    return await http.get(
+      Uri.parse('${ApiUrl.productsUrl}/$produtoId/precos'),
+    );
   }
 
   // Método para atualizar o preço de venda de um produto em uma loja específica
