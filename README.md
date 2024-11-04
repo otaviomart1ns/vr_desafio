@@ -294,7 +294,7 @@ Se ocorrerem erros de conexão com o banco de dados, verifique se as credenciais
 
 A aplicação foi implantada e está disponível publicamente. Você pode acessá-la diretamente através do seguinte endereço IP:
 
-Frontend Flutter Web: https://34.196.27.65
+Frontend Flutter Web: http://34.196.27.65:8080
 
 Esse endereço IP aponta para o frontend da aplicação desenvolvida em Flutter, e também serve como ponto de acesso à API Flask, e ao banco de dados MySQL.
 
