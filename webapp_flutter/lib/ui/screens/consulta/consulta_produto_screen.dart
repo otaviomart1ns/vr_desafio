@@ -82,7 +82,8 @@ class _ConsultaProdutoScreenState extends State<ConsultaProdutoScreen> {
           labelText: "Código",
           controller: consultaController.codigo,
           onChanged: (value) => consultaController.getProdutos(),
-          inputFormatters: [],
+          keyboardType: TextInputType.number,
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         ),
         const SizedBox(width: 16.0),
         customTextFormField(
@@ -90,6 +91,7 @@ class _ConsultaProdutoScreenState extends State<ConsultaProdutoScreen> {
           labelText: "Descrição",
           controller: consultaController.descricao,
           onChanged: (value) => consultaController.getProdutos(),
+          keyboardType: TextInputType.text,
           inputFormatters: [],
         ),
         const SizedBox(width: 16.0),
@@ -100,6 +102,7 @@ class _ConsultaProdutoScreenState extends State<ConsultaProdutoScreen> {
           onChanged: (value) {
             consultaController.getProdutos();
           },
+          keyboardType: TextInputType.numberWithOptions(decimal: true),
           inputFormatters: [
             FilteringTextInputFormatter.allow(
               RegExp(
@@ -134,6 +137,7 @@ Widget customTextFormField({
   Function(String)? onChanged,
   bool? readOnly,
   List<TextInputFormatter>? inputFormatters,
+  TextInputType? keyboardType,
 }) {
   return SizedBox(
     width: width,
@@ -144,16 +148,9 @@ Widget customTextFormField({
         labelText: labelText,
         border: const OutlineInputBorder(),
       ),
-      keyboardType: TextInputType.numberWithOptions(decimal: true),
-      inputFormatters: [
-        FilteringTextInputFormatter.allow(RegExp(r'[\d.,]')),
-      ],
+      keyboardType: keyboardType ?? TextInputType.text,
+      inputFormatters: inputFormatters,
       onChanged: onChanged,
-      onEditingComplete: () {
-        // Formatando o valor ao terminar a edição
-        String formattedValue = _formatNumber(controller.text);
-        controller.text = formattedValue;
-      },
     ),
   );
 }
