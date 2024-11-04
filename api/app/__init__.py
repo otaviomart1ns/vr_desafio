@@ -7,10 +7,18 @@ from .config import Config
 db = SQLAlchemy()
 migrate = Migrate()
 
-def create_app():
+def create_app(config_name='default'):
     app = Flask(__name__)
-    CORS(app) 
-    app.config.from_object(Config)
+    CORS(app)
+    
+    if config_name == 'test':
+        app.config.from_mapping({
+            'TESTING': True,
+            'SQLALCHEMY_DATABASE_URI': 'sqlite:///:memory:',
+            'SQLALCHEMY_TRACK_MODIFICATIONS': False
+        })
+    else:
+        app.config.from_object(Config)
 
     db.init_app(app)
     migrate.init_app(app, db)
