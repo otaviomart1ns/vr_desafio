@@ -1,4 +1,4 @@
-# Projeto Flutter + Flask API
+# Projeto VR Software - Flutter + Flask API
 
 ## Descrição
 
@@ -70,7 +70,7 @@ WEB_PORT=8080                   # Porta onde o frontend Flutter será exposto
 Com o `docker-compose`, os containers para a API Flask, o frontend Flutter e o banco de dados MySQL serão inicializados. Para executar o projeto, use o seguinte comando:
 
 ```bash
-docker compose up --build
+docker-compose up --build
 ```
 
 Este comando irá compilar as imagens e subir os seguintes serviços:
@@ -91,7 +91,7 @@ Após executar o comando acima, acesse os serviços:
 Para parar e remover os containers em execução, utilize o comando:
 
 ```bash
-docker compose down
+docker-compose down
 ```
 
 ---
@@ -287,5 +287,15 @@ Se a porta 80 (para o frontend) ou 5000 (para a API) estiverem sendo usadas por 
 ### 2. **Conexão com o banco de dados**
 
 Se ocorrerem erros de conexão com o banco de dados, verifique se as credenciais no arquivo `.env` estão corretas e se o container do MySQL foi inicializado corretamente.
+
+---
+
+## Deploy da Aplicação
+
+A aplicação foi implantada e está disponível publicamente. Você pode acessá-la diretamente através do seguinte endereço IP:
+
+Frontend Flutter Web: http://34.196.27.65
+
+Esse endereço IP aponta para o frontend da aplicação desenvolvida em Flutter, e também serve como ponto de acesso à API Flask, e ao banco de dados MySQL.
 
 ---
