@@ -162,8 +162,6 @@ Exclui um produto existente com base no `id`.
 curl -X DELETE http://localhost:5000/produtos/1
 ```
 
----
-
 ## Endpoints para Preços de Produtos em Lojas
 
 ### 6. **`GET /produtos/<id>/lojas`**
